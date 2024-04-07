@@ -1,3 +1,4 @@
+#pragma once
 
 #include "iot-tp-consts.h"
 

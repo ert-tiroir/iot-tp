@@ -1,3 +1,4 @@
+#pragma once
 
 #include "iot-tp-macros.h"
 
@@ -5,7 +6,7 @@ START_FULL_NAMESPACE(routing)
 
 #define lan_ip_t uint8_t
 
-#define NO_PATH 0
+#define NO_PATH 255
 #define NO_ROAD 0
 
 struct packet_router_t {

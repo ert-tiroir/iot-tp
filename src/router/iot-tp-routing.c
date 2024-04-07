@@ -15,6 +15,7 @@ void recompute_path_map (struct packet_router_t* router) {
 
 lan_ip_t get_route (struct packet_router_t* router, lan_ip_t target) {
     // TODO get the route from pathmap
+    return 0;
 }
 
 void modify_route (struct packet_router_t* router, struct route_modification_t *modification) {
