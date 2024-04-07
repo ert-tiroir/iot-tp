@@ -4,7 +4,7 @@
 #include "drivers/rpi/spi.h"
 
 #include "wiringPi.h"
-#include "wiringPiSpi.h"
+#include "wiringPiSPI.h"
 
 // The raspberry pi does not support slave mode SPI
 void SPI_SLAVE__tick  (struct physical_channel_t* channel) {}
