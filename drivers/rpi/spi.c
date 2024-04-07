@@ -10,6 +10,7 @@
 void SPI_SLAVE__tick  (struct physical_channel_t* channel) {}
 
 void SPI_MASTER__tick (struct physical_channel_t* channel) {
+    int SPI_AVL[2] = { SPI_AVL_0, SPI_AVL_1 };
     struct rpi_spi_channel_parameters_t* params = channel->channel_parameters;
 
     unsigned char* rxbuf = writable_page( &channel->rxbuf );
