@@ -27,6 +27,6 @@ void start_transaction (
 
 void tick (struct physical_channel_t* channel);
 
-int init_channel (struct physical_channel_t* channel, struct iot_buffer_t buffer);
+int init_channel (struct physical_channel_t* channel, enum physical_channel_type_e channel_type, struct iot_buffer_t buffer);
 
 END_FULL_NAMESPACE(physical)
