@@ -1,6 +1,6 @@
 #pragma once
 
-int SPI_AVL[2] = { 4, 5 };
+const int SPI_AVL[2] = { 4, 5 };
 const int SPI_AVL_size = 2;
 
 const int DATA_MASTER = 15;
