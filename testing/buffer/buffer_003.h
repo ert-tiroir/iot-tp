@@ -2,7 +2,7 @@
 
 #include "case.h"
 
-#include "buffer/buffer.h"
+#include "iot-tp/buffer/buffer.h"
 
 USE_NAMESPACE(nordli::iottp::testing)
 

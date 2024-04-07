@@ -1,5 +1,5 @@
 
-#include "physical/drivers.h"
+#include "iot-tp/physical/drivers.h"
 
 USE_NAMESPACE(nordli::iottp::physical);
 
@@ -29,4 +29,8 @@ void tick (struct physical_channel_t* channel) {
             break ;
         }
     }
+}
+
+int init_channel (struct physical_channel_t* channel, struct iot_buffer_t buffer) {
+    
 }

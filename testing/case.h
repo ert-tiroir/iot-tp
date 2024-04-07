@@ -1,6 +1,6 @@
 #pragma once
 
-#include "iot-tp-macros.h"
+#include "iot-tp/iot-tp-macros.h"
 
 START_FULL_NAMESPACE(testing);
 

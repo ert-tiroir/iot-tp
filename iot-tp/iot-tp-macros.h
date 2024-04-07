@@ -1,6 +1,6 @@
 #pragma once
 
-#include "iot-tp-consts.h"
+#include "iot-tp/iot-tp-consts.h"
 
 #ifdef CXX
 #define START_NAMESPACE(name) namespace name {

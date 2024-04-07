@@ -1,7 +1,7 @@
 #pragma once
 
-#include "iot-tp-macros.h"
-#include "buffer/buffer.h"
+#include "iot-tp/iot-tp-macros.h"
+#include "iot-tp/buffer/buffer.h"
 
 START_FULL_NAMESPACE(physical)
 

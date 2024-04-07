@@ -2,7 +2,7 @@
 
 #include "case.h"
 
-#include "router/iot-tp-routing.h"
+#include "iot-tp/router/iot-tp-routing.h"
 
 USE_NAMESPACE(nordli::iottp::routing);
 USE_NAMESPACE(nordli::iottp::testing)

@@ -1,5 +1,5 @@
 
-#include "buffer/buffer.h"
+#include "iot-tp/buffer/buffer.h"
 
 size_t next (size_t value, struct iot_buffer_t buffer) {
     return (value + buffer.pag_size) & buffer.max_mask;

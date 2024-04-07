@@ -1,6 +1,6 @@
 #pragma once
 
-#include "physical/transaction.h"
+#include "iot-tp/physical/transaction.h"
 
 START_FULL_NAMESPACE(physical)
 
@@ -15,7 +15,7 @@ struct physical_channel_t {
     struct physical_transaction_t transaction;
 
     enum physical_channel_type_e channel_type;
-    void * channel_parameters;
+    unsigned char channel_parameters[16];
 };
 
 int can_start_transaction (struct physical_channel_t* channel);
@@ -26,5 +26,7 @@ void start_transaction (
 );
 
 void tick (struct physical_channel_t* channel);
+
+int init_channel (struct physical_channel_t* channel, struct iot_buffer_t buffer);
 
 END_FULL_NAMESPACE(physical)
