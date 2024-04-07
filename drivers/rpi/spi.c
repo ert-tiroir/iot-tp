@@ -2,6 +2,7 @@
 #include "iot-tp/buffer/buffer.h"
 #include "iot-tp/physical/drivers.h"
 #include "drivers/rpi/spi.h"
+#include <stdio.h>
 
 #include "wiringPi.h"
 #include "wiringPiSPI.h"
