@@ -50,6 +50,7 @@ void SPI_MASTER__tick (struct physical_channel_t* channel) {
     digitalWrite(DATA_MASTER, data_master);
 
     int data_slave = digitalRead(DATA_SLAVE);
+    if (!(data_slave || data_master)) return ;
 
     wiringPiSPIDataRW(params->SPI_channel, rxbuf, channel->rxbuf.pag_size);
 
