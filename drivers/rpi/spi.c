@@ -71,6 +71,11 @@ struct physical_channel_t SPI_SLAVE__create  (int SPI_channel) {
     return result;
 }
 struct physical_channel_t SPI_MASTER__create (int SPI_channel) { 
+    pinMode(SPI_AVL_0, INPUT);
+    pinMode(SPI_AVL_1, INPUT);
+    pinMode(SPI_DS,    INPUT);
+    pinMode(SPI_DM_BS, OUTPUT);
+    pinMode(SPI_DM_AS, OUTPUT);
     struct physical_channel_t result;
 
     result.transaction.buffer = 0;
