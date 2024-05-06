@@ -5,8 +5,9 @@ const int SPI_AVL_1 = 5;
 
 const int SPI_AVL_size = 2;
 
-const int DATA_MASTER = 15;
-const int DATA_SLAVE  = 16;
+const int SPI_DS    = 15;
+const int SPI_DM_BS = 16;
+const int SPI_DM_AS = 11;
 
 struct rpi_spi_channel_parameters_t {
     int SPI_channel;

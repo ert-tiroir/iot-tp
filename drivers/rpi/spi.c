@@ -21,6 +21,7 @@ void SPI_MASTER__tick (struct physical_channel_t* channel) {
     unsigned char* rxbuf = writable_page( &channel->rxbuf );
     if (!rxbuf) return ;
 
+    int data_slave  = digitalRead(SPI_DS);
     int data_master = LOW;
     if (channel->transaction.buffer && channel->transaction.sent < channel->transaction.size) {
         unsigned char* txbuf = readable_page( channel->transaction.buffer );
@@ -35,6 +36,8 @@ void SPI_MASTER__tick (struct physical_channel_t* channel) {
             channel->transaction.sent += channel->transaction.buffer->pag_size;
         }
     }
+    
+    if (!(data_slave || data_master)) return ;
 
     while (params->SPI_AVL_offset == -1) {
         for (int p = 0; p < SPI_AVL_size; p ++) {
@@ -45,14 +48,14 @@ void SPI_MASTER__tick (struct physical_channel_t* channel) {
         }
     }
 
+    digitalWrite(SPI_DM_BS, data_master);
+
     int pin = SPI_AVL[params->SPI_AVL_offset];
     int cnt = 0;
     while (!digitalRead(pin)) cnt ++;
 
-    digitalWrite(DATA_MASTER, data_master);
-
-    int data_slave = digitalRead(DATA_SLAVE);
-    if (!(data_slave || data_master)) return ;
+    digitalWrite(SPI_DM_BS, LOW);
+    digitalWrite(SPI_DM_AS, data_master);
 
     wiringPiSPIDataRW(params->SPI_channel, rxbuf, channel->rxbuf.pag_size);
 
