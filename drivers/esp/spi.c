@@ -84,7 +84,11 @@ void SPI_MASTER__tick (struct physical_channel_t* channel) {}
 
 struct physical_channel_t SPI_SLAVE__create  (int SPI_channel) { 
     struct physical_channel_t result;
-    result.
+    pinMode(SPI_AVL0,  OUTPUT);
+    pinMode(SPI_AVL1,  OUTPUT);
+    pinMode(SPI_DS,    OUTPUT);
+    pinMode(SPI_DM_BS, INPUT);
+    pinMode(SPI_DM_AS, INPUT);
 
     esp_err_t ret;
     spi_bus_config_t buscfg = {
