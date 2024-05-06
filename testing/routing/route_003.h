@@ -3,12 +3,14 @@
 #include "case.h"
 
 #include "iot-tp/router/iot-tp-routing.h"
+#include <stdio.h>
 
 USE_NAMESPACE(nordli::iottp::routing);
 USE_NAMESPACE(nordli::iottp::testing)
 
 enum test_result_t test_route_003 (const char** message) {
     struct packet_router_t router;
+    router.local_ip = 1;
 
     for (uint8_t a = 0; a < MAX_ADRESS_COUNT; a ++) {
         for (uint8_t b = 0; b < MAX_ADRESS_COUNT; b ++) {
@@ -22,15 +24,15 @@ enum test_result_t test_route_003 (const char** message) {
                 .a = a,
                 .b = b,
 
-                .weight = a + b
+                .weight = a + b + 1
             };
 
             modify_route(&router, &modification);
             for (uint8_t a0 = 0; a0 < MAX_ADRESS_COUNT; a0 ++) {
                 for (uint8_t b0 = 0; b0 < MAX_ADRESS_COUNT; b0 ++) {
                     if (a0 == a && b0 == b) {
-                        if (router.weight_map[a0][b0] != a + b) {
-                            *message = "modify_route() should set the router's weight_map[a][b] to the weight";
+                        if ((router.weight_map[a0][b0] != a + b + 1) == (a == router.local_ip)) {
+                            *message = "modify_route() should set the router's weight_map[a][b] to the weight iff a = lan_ip";
                             return WRONG_BEHAVIOR;
                         }
                     } else {

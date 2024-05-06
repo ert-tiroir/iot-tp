@@ -14,3 +14,5 @@ struct packet_header_t {
 
 struct packet_header_t get_header (unsigned char* buffer);
 uint32_t write_header (unsigned char* buffer, struct packet_header_t header);
+
+int is_syscall_header (struct packet_header_t header);

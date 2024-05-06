@@ -12,3 +12,9 @@ uint32_t write_header (unsigned char* buffer, struct packet_header_t header) {
 
     return (uint32_t) sizeof(struct packet_header_t);
 }
+
+int is_syscall_header (struct packet_header_t header) {
+    unsigned int uuid = header.packet_id;
+
+    return uuid >> 28;
+}

@@ -22,7 +22,7 @@ void SPI_MASTER__tick (struct physical_channel_t* channel) {
     if (!rxbuf) return ;
 
     int data_master = LOW;
-    if (channel->transaction.buffer) {
+    if (channel->transaction.buffer && channel->transaction.sent < channel->transaction.size) {
         unsigned char* txbuf = readable_page( channel->transaction.buffer );
 
         if (txbuf) {
@@ -31,6 +31,8 @@ void SPI_MASTER__tick (struct physical_channel_t* channel) {
 
             free_read(channel->transaction.buffer);
             data_master = HIGH;
+
+            channel->transaction.sent += channel->transaction.buffer->pag_size;
         }
     }
 
